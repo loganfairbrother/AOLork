@@ -1,0 +1,212 @@
+/*
+ * AoLORK v1.0
+ * By: Logan Fairbrother
+ * 2/18/14
+ */
+
+/*
+ * Commands List:
+ * cls(); == clear screen
+ * print(); == print one line
+ * println(); == double space line
+ * pause(); == pause
+ */
+
+import java.io.*;
+import java.util.*;
+public class AoLORK{
+    //Public Variables
+    public Scanner kybd = new Scanner(System.in);
+    Random rng = new Random();
+    public void main(String[] args){
+        println("Welcome, to the Adventures of Lork");
+        Menu();
+    }
+    //Menu System
+    public void Menu(){
+            //Clear Screen
+            //cls();
+            //println("Welcome, to the Adventures of Lork");
+            //Pause
+            pause(2112);
+            //Cls
+            cls();
+            //Menu Visual
+            println("Adventures of Lork\n");
+            println("1) Select an Adventure");
+            println("2) Options");
+            println("3) Help");
+            println("4) Credits");
+            println("5) Achievements");
+            println("6) Exit\n");
+            //Call for Selection
+            int a = kybd.nextInt();
+            //Go to the given selection
+            switch(a){
+                case 1:
+                Adventures();
+                break;
+                
+                case 2:
+                Options();
+                break;
+                
+                case 3:
+                Help();
+                break;
+                
+                case 4:
+                Credits();
+                break;
+                
+                case 5:
+                Achievements();
+                break;
+                
+                default:
+                Exit();
+                break;
+                
+            }
+    }    
+    //Clear the screen!
+    public void cls(){
+        System.out.print('\u000C');
+    }
+    //Clean println statement
+    public void println(String println){
+        System.out.println(println);
+    }
+    //Clean print statement
+    public void print(String print){
+        System.out.print(print);
+    }
+    //Clean pause
+    public void pause(int pause){
+        try { 
+                Thread.sleep(pause); 
+            } catch(InterruptedException e) { 
+            }
+    }
+    //Exit the program
+    public void Exit(){
+         cls();
+         println("Are you sure you would like to exit?");
+         println("Enter true or false.\n");
+         boolean exit = kybd.nextBoolean();
+         if(exit == true){
+             //Remark and then close
+             cls();
+             println("Thanks for playing!");
+             pause(1221);
+             System.exit(0);
+            }
+            else{
+                //Reset to menu
+                Menu();
+            }
+    }
+    //Options
+    public void Options(){
+        cls();
+        println("Options\n");
+        println("Coming soon!");
+        pause(1221);
+        Menu();
+    }
+    //Help
+    public void Help(){
+        cls();
+        println("Help\n");
+        println("Coming soon!");
+        pause(1221);
+        Menu();
+    }
+    //Credits
+    public void Credits(){
+        cls();
+        println("Credits\n");
+        println("Coming soon!");
+        pause(1221);
+        Menu();
+    }
+    //Achievements
+    public void Achievements(){
+        cls();
+        println("Achievements\n");
+        println("Coming soon!");
+        pause(1221);
+        Menu();
+    }
+    //Adventures
+    public void Adventures(){            
+            //Sub-Menu
+            cls();
+            println("Adventures of Lork\n");
+            println("1) Classic Mansion");
+            println("2) Classic Isles");
+            println("3) Zombie Apocalypse");
+            println("4) Random");
+            println("More coming soon!\n");
+            int b = kybd.nextInt();
+            
+            //Declare the place they are going
+            switch(b){
+              case 1:
+              CMansion();
+              break;
+              
+              case 2:
+              CIsles();
+              break;
+              
+              case 3:
+              ZApocalypse();
+              break;
+              
+              case 4:
+              Random();   
+              break;
+              
+              default:
+              Adventures();
+            }
+    }
+    //Classic Mansion
+    public void CMansion(){
+        cls();
+        println("Classic Mansion");
+        pause(1221);
+    }
+    //Classic Isles
+    public void CIsles(){
+        cls();
+        println("Classic Isles");
+        pause(1221);
+    }
+    //Zombie Apocalypse
+    public void ZApocalypse(){
+        cls();
+        println("Zombie Apocalypse");
+        pause(1221);
+    }
+    public void Random(){
+        cls();
+        println("Generating Random Adventure");
+        pause(2112);
+        int rnd = rng.nextInt(3) + 1;
+        switch(rnd){
+            case 1:
+            CMansion();
+            break;
+            
+            case 2:
+            CIsles();
+            break;
+            
+            case 3:
+            ZApocalypse();
+            break;
+        }
+    }
+}
